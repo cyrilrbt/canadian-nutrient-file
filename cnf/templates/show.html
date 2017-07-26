@@ -48,7 +48,7 @@
     </tr>
     {% for y in yields %}
     <tr>
-      <td>{{ y.name }}</td>
+      <td>{{ y.yield_name.name }}</td>
       <td>{{ y.amount }}</td>
     </tr>
     {% endfor %}
@@ -61,7 +61,7 @@
     </tr>
     {% for r in refuses %}
     <tr>
-      <td>{{ r.name }}</td>
+      <td>{{ r.refuse_name.name }}</td>
       <td>{{ r.amount }}</td>
     </tr>
     {% endfor %}

@@ -11,6 +11,7 @@
         <input class="form-control" name="q" value="{{ q|default('', True) }}" />
       </form>
     </div>
+    {% if foods %}
     <div class="col">
       <ul>
         {% for food in foods %}
@@ -18,6 +19,7 @@
         {% endfor %}
       </ul>
     </div>
+    {% endif %}
   </div>
 </div>
 {% endblock %}

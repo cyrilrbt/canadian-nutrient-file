@@ -111,10 +111,6 @@ class CNFYieldAmount(CNFDocument):
     amount = db.StringField()
     date_of_entry = db.DateTimeField()
 
-    @property
-    def name(self):
-        return CNFYieldName.objects.get(yield_amount=self.id).name
-
 
 class CNFYieldName(CNFDocument):
     meta = {
@@ -133,10 +129,6 @@ class CNFRefuseAmount(CNFDocument):
     refuse_name = db.ReferenceField('CNFRefuseName')
     amount = db.StringField()
     date_of_entry = db.DateTimeField()
-
-    @property
-    def name(self):
-        return CNFRefuseName.objects.get(refuse_amount=self.id).name
 
 
 class CNFRefuseName(CNFDocument):
