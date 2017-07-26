@@ -40,3 +40,4 @@ The pdfs provided with the download will explain everything to you, so I won't r
     # Run the demo flask app and open a browser
     bin/cnf runserver
     open http://localhost:8888/
+

@@ -1,17 +1,16 @@
 import os
 import csv
 import time
-from flask_script import Command
+from flask_script import Command, Option
 from cnf.settings import ROOT_PATH
 
 
-# Add arguments
-# --source
-# --batch-size (defaults 1000)
-
-
 class Import(Command):
-    data_path = os.path.join(ROOT_PATH, 'cnf', 'data')
+    option_list = (
+        Option('--source', '-s', dest='source'),
+        Option('--batch', '-b', dest='batch', default=1000),
+
+    )
 
     def csv(self, filename):
         _f = open(os.path.join(self.data_path, filename, ), 'r', encoding='iso8859')
@@ -34,7 +33,9 @@ class Import(Command):
             model.objects.insert(pending)
         return total
 
-    def run(self):
+    def run(self, source, batch):
+        batch = int(batch)
+        self.data_path = source
         from flask import current_app as app
         with app.app_context():
             from cnf.models import (
@@ -63,6 +64,6 @@ class Import(Command):
             model.objects.all().delete()
             s = time.time()
             cf = self.csv(filename)
-            count = self.load_data(cf, model, fields)
+            count = self.load_data(cf, model, fields, batch=batch)
             d = time.time() - s
             print(' ', count, 'rows imported in %.04fs\n' % d)
