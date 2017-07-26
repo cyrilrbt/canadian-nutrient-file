@@ -60,6 +60,8 @@ class Import(Command):
         )
         for filename, model, fields in STEPS:
             print('Importing', filename)
+            # TODO Dropping everything probably should be an option
+            #      Not sure what to expect when you don't though
             print('  Dropping all items')
             model.objects.all().delete()
             s = time.time()
