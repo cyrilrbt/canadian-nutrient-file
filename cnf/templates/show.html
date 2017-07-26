@@ -1,0 +1,70 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="container pt-4">
+  <h1 class="mb-0">{{ food.description }}</h1>
+  <p class="mb-4"><a href="{{ url_for('cnf.index') }}">&laquo; back</a></p>
+  <table class="table table-sm table-striped table-bordered table-hover">
+    <tr>
+      <th>Group</th>
+      <td>{{ food.food_group.name }}</td>
+    </tr>
+    <tr>
+      <th>Source</th>
+      <td>{{ food.food_source.description }}</td>
+    </tr>
+  </table>
+  <h2>Conversions</h2>
+  <table class="table table-sm table-striped table-bordered table-hover">
+    <tr>
+      <th>Name</th>
+      <th>Multiplier</th>
+    </tr>
+    {% for c in conversions %}
+    <tr>
+      <td>{{ c.measure.name }}</td>
+      <td>{{ c.value }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <h2>Nutrients</h2>
+  <table class="table table-sm table-striped table-bordered table-hover">
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      <th>unit</th>
+    </tr>
+    {% for n in nutrients %}
+    <tr>
+      <td>{{ n.nutrient_name.name }}</td>
+      <td>{{ n.nutrient_value }}</td>
+      <td>{{ n.nutrient_name.unit }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <h2>Yield</h2>
+  <table class="table table-sm table-striped table-bordered table-hover">
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+    </tr>
+    {% for y in yields %}
+    <tr>
+      <td>{{ y.name }}</td>
+      <td>{{ y.amount }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <h2>Refuse</h2>
+  <table class="table table-sm table-striped table-bordered table-hover">
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+    </tr>
+    {% for r in refuses %}
+    <tr>
+      <td>{{ r.name }}</td>
+      <td>{{ r.amount }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

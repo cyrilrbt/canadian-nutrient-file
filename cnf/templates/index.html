@@ -1,0 +1,23 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="container pt-4">
+  <div class="row py-4">
+    <div class="col text-center">
+      <h1>Food standards</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <form method='GET'>
+        <input class="form-control" name="q" value="{{ q|default('', True) }}" />
+      </form>
+    </div>
+    <div class="col">
+      <ul>
+        {% for food in foods %}
+        <li><a href="{{ url_for('cnf.show', food_id=food.id) }}">{{ food.description }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
