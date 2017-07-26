@@ -20,7 +20,7 @@ setup(
         'Natural Language :: French',
         'Programming Language :: Python :: 3',
         'Topic :: Database',
-    ]
+    ],
     install_requires=[
         'setuptools',
         'flask',
