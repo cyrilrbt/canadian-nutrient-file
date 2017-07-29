@@ -53,7 +53,7 @@ class CNFNutrientAmount(CNFDocument):
     food = db.ReferenceField('CNFFoodName')
     nutrient_name = db.ReferenceField('CNFNutrientName')
     nutrient_source = db.ReferenceField('CNFNutrientSource')
-    nutrient_value = db.IntField()
+    nutrient_value = db.DecimalField()
     standard_error = db.StringField()
     number_of_observations = db.IntField()
     date_of_entry = db.DateTimeField()

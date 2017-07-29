@@ -34,7 +34,7 @@
     </tr>
     {% for n in nutrients %}
     <tr>
-      <td>{{ n.nutrient_name.name }}</td>
+      <td>{{ n.nutrient_name.id }} - {{ n.nutrient_name.name }}</td>
       <td>{{ n.nutrient_value }}</td>
       <td>{{ n.nutrient_name.unit }}</td>
     </tr>

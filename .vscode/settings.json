@@ -1,5 +1,0 @@
-// Place your settings in this file to overwrite default and user settings.
-{
-  "python.linting.pylintPath": "./bin/pylint",
-  "python.pythonPath": "./bin/python"
-}

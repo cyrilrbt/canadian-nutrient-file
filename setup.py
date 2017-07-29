@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='canadian-nutrient-file',
-    version='0.0.4',
+    version='0.0.5',
     author='Cyril Robert',
     author_email='cyril@hippie.io',
     url='http://github.com/cyrilrbt/canadian-nutrient-file',
